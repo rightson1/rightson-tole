@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    //.next package-lock.json yarn.lock postcss.config.js tsconfig.json README.md next-env.d.ts .gitignore public
+    "**/.next": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/postcss.config.js": true,
+    "**/tsconfig.json": true,
+    "**/README.md": true,
+    "**/next-env.d.ts": true,
+    "**/.gitignore": true
+    // "**/public": true
+  }
+}
