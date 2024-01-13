@@ -10,7 +10,7 @@ export default async function About() {
     justify-between bg-white"
     >
       <Hero />
-      <Projects projects={projects} />
+      {projects && <Projects projects={projects} />}
     </main>
   );
 }
