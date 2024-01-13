@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const isLargeScreen = useMediaQuery({ minWidth: 1024 });
   return (
     <motion.div
-      className={`relative ${
+      className={`relative scroll-smooth ${
         open &&
         "flex items-center bg-danger justify-end relative h-screen   overflow-hidden"
       }`}
@@ -39,7 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           }}
           className={`relative bg-white`}
         >
-          <Contact />
+          {/* <Contact /> */}
           <Navbar open={open} setOpen={setOpen} />
           {children}
           <Footer />

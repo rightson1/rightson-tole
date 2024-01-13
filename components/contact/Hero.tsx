@@ -3,9 +3,9 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="main-h bg-black w-full  text-white pxs ">
+    <section className="main-h bg-black w-full  text-white pxs  ">
       <div
-        className="flex justify-between w-full
+        className="flex justify-between w-full py-10
          h-full  gap-72 "
       >
         <div className="  pt-24 lg:flex hidden">
@@ -27,13 +27,10 @@ const Hero = () => {
             className="text-xl  
             font-[400] w-full"
           >
-            Founded in 2000, Creative Mouse has established itself as a
-            multi-discipline creative agency with expertise in branding,
-            brochure & catalogue design, web design, print, digital marketing,
-            photography & graphic design. Based at the heart of the UK in the
-            picturesque city of Worcester we work with a whole range of clients
-            and all sized businesses both nationwide and local. See what else we
-            can offer here!
+            Hello there! Ready to connect and bring ideas to life? Whether you
+            have a project in mind, a collaboration to propose, or just want to
+            chat about the latest tech trends, I'm all ears. Drop me a line, and
+            let's turn pixels into possibilities.
           </p>
           <p className=" sm:text-start font-marck text-4xl">Chari</p>
         </div>

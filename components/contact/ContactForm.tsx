@@ -15,13 +15,16 @@ const Contact = () => {
   );
   return (
     <div className="pxs w-full bg-white">
-      <div className=" sm:hidden flex w-full fx-c pt-20 lg:pt-24  z-[5] -mt-[250px]">
+      <div
+        className="  flex w-full fx-c pt-20 lg:pt-24 
+       z-[5] -mt-[250px]"
+      >
         <Image
-          src="/music.png"
+          src="/connect.jpg"
           width={500}
           height={500}
           alt="Helooe"
-          className=" h-[300px] md:h-[300px]
+          className=" h-[300px] md:h-[400px]
            w-full md:w-[80vw] object-cover"
         />
       </div>

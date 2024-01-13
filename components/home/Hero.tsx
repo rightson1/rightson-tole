@@ -25,8 +25,9 @@ const Hero = () => {
             className="text-4xl  
             font-[400] w-full md:text-5xl md:font-[500] mb:font-semibold"
           >
-            I am Rightson Kirigha. <br />A friendly little design agency that
-            creates bold ideas to help build brands.
+            I am Rightson Kirigha. <br />
+            {`   I craft web magic : I make pixels dance and code tell jokes.
+            Welcome to my whimsical world`}
           </h1>
           <p className=" sm:text-start font-marck text-4xl">Chari</p>
         </div>

@@ -35,7 +35,7 @@ const Navbar = ({ open, setOpen }: OpenProps) => {
       className="bg-black h-[80px]  w-screen
     flex justify-between items-center p-4 md:p-[64px]"
     >
-      <div className="flex items-center">
+      <Link className="flex items-center" href={"/"}>
         <Image
           alt="logo"
           src="/logo.svg"
@@ -43,7 +43,7 @@ const Navbar = ({ open, setOpen }: OpenProps) => {
           width={300}
           height={300}
         />
-      </div>
+      </Link>
 
       <div className=" hidden lg:flex justify-center items-center gap-10 flex-1 ">
         {" "}
@@ -63,10 +63,12 @@ const Navbar = ({ open, setOpen }: OpenProps) => {
           </button>
         ))}
       </div>
-      <Button
+      <button
         onClick={() => setOpen(!open)}
         className="flex 
-        cursor-pointer bg-transparent outline-none flex-col items-start  gap-[6px] group w-[50px]  "
+        cursor-pointer
+         bg-transparent pl-5  outline-none flex-col items-start
+           gap-[6px] group w-[50px]  "
       >
         {["1", "2", "3"].map((item, index) => (
           <span
@@ -90,7 +92,7 @@ const Navbar = ({ open, setOpen }: OpenProps) => {
             />
           </span>
         ))}
-      </Button>
+      </button>
     </div>
   );
 };

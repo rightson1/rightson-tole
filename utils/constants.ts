@@ -7,20 +7,18 @@ export const menuLinks = [
   },
   {
     name: "About",
-    url: "/about",
+    url: "#about",
+  },
+
+  {
+    name: "Blogs",
+    url: "#blogs",
   },
   {
     name: "Projects",
     url: "/projects",
   },
-  {
-    name: "Blogs",
-    url: "/blog",
-  },
-  {
-    name: "Gallery",
-    url: "/gallery",
-  },
+
   {
     name: "Contact",
     url: "/contact",
@@ -29,16 +27,19 @@ export const menuLinks = [
 export const services = [
   {
     title: "Web Development",
-    description:
-      "I have experience building websites and chrome extensions using JavaScript,React, HTML,CSS ,NodeJS ,ExpressJS, MongoDB",
+    description: `Experienced in full-stack development,
+       e-commerce, WordPress, Next.js, MongoDB,
+        React, Node.js, and Firebase.`,
   },
   {
     title: "Mobile App Development",
-    description: "I have experience building mobile apps using React Native",
+    description: `Specializing in Progressive 
+      Web Applications (PWAs) for a seamless
+       and responsive web-like mobile experience.`,
   },
   {
     title: "UI/UX Design",
-    description:
-      "I have experience building UI/UX designs using Figma,Adobe XD",
+    description: `Crafting visually stunning and user-centric
+       interfaces using Figma for intuitive digital experiences.`,
   },
 ];

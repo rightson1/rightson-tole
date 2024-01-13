@@ -27,10 +27,9 @@ const Hero = () => {
             className="text-xl  
             font-[400] w-full"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            distinctio rerum explicabo doloremque totam repellendus sunt magnam
-            placeat delectus ducimus. Numquam ea esse sed officia consequatur,
-            perferendis saepe velit exercitationem?
+            You remeber Riley from the Boondocks? Sorry, I meant Huey. Anyways
+            welcome to my projects page. Here you can find some of my projects.
+            You might need a cup of coffee though. So lets dive in.
           </p>
           <p className=" sm:text-start font-marck text-4xl">Chari</p>
         </div>
