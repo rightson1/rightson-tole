@@ -6,6 +6,7 @@ import Projects from "@/components/home/Projects";
 import Section2 from "@/components/home/Section2";
 import StartProject from "@/components/home/StartProject";
 import { getBlogs, getProjects } from "@/utils/api";
+import { Metadata } from "next";
 
 export default async function Home() {
   const [projects, blogs] = await Promise.all([getProjects(), getBlogs()]);
