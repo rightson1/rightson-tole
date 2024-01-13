@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 * {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; */
   -webkit-tap-highlight-color: transparent;
 }
 body {
@@ -14,7 +14,9 @@ body {
 .fx-c {
   @apply flex justify-center items-center;
 }
-
+.fx-col {
+  @apply flex flex-col;
+}
 .t-200 {
   @apply transition-all duration-200 ease-in;
 }
@@ -22,7 +24,10 @@ body {
   @apply relative h-[2px] bg-white rounded-lg;
 }
 .pxs {
-  @apply px-5 p-4 md:p-[64px];
+  @apply px-5 p-5 md:p-[64px];
+}
+.pxss {
+  @apply px-5  md:px-[64px];
 }
 .main-h {
   @apply h-[calc(100vh-80px)];

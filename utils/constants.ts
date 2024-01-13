@@ -30,7 +30,7 @@ export const services = [
   {
     title: "Web Development",
     description:
-      "I have experience building websites and chrome extensions using JavaScript,React,HTML,CSS,NodeJS,ExpressJS,MongoDB",
+      "I have experience building websites and chrome extensions using JavaScript,React, HTML,CSS ,NodeJS ,ExpressJS, MongoDB",
   },
   {
     title: "Mobile App Development",

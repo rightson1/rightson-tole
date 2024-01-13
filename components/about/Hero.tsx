@@ -19,15 +19,22 @@ const Hero = () => {
         </div>
         <div
           className="flex-col flex gap-3 
-           h-full  md:justify-center mb:pt-10"
+           h-full  md:justify-center "
         >
-          <h1
-            className="text-4xl  
-            font-[400] w-full md:text-5xl md:font-[500] mb:font-semibold"
+          {" "}
+          <h1 className="h1">About Us</h1>
+          <p
+            className="text-xl  
+            font-[400] w-full"
           >
-            I am Rightson Kirigha. <br />A friendly little design agency that
-            creates bold ideas to help build brands.
-          </h1>
+            Founded in 2000, Creative Mouse has established itself as a
+            multi-discipline creative agency with expertise in branding,
+            brochure & catalogue design, web design, print, digital marketing,
+            photography & graphic design. Based at the heart of the UK in the
+            picturesque city of Worcester we work with a whole range of clients
+            and all sized businesses both nationwide and local. See what else we
+            can offer here!
+          </p>
           <p className=" sm:text-start font-marck text-4xl">Chari</p>
         </div>
       </div>

@@ -1,16 +1,15 @@
 import Image from "next/image";
 import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
-import CustomAccordion from "./CustomAccordion";
 const defaultContent =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
-const Section2 = () => {
+const Second = () => {
   return (
     <div className="pxs w-full bg-white">
       <div className=" sm:hidden flex w-full fx-c pt-20 lg:pt-24  z-[5] -mt-[250px]">
         <Image
-          src="/happy.png"
+          src="/music.png"
           width={500}
           height={500}
           alt="Helooe"
@@ -43,18 +42,8 @@ const Section2 = () => {
           alt="Design"
         />
       </div>
-      <div className="flex flex-col lg:flex-row py-20 gap-10">
-        <div className="flex flex-col gap-2 flex-1">
-          <h3 className="p">What we do</h3>
-          <p className="h3">
-            Adrenalin are Australia's leading digital product agency building s
-          </p>
-          <p className="mb:hidden  font-marck text-4xl">Chari</p>
-        </div>
-        <CustomAccordion />
-      </div>
     </div>
   );
 };
 
-export default Section2;
+export default Second;

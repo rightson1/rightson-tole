@@ -2,16 +2,19 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-black mt-10 mb:pt-20 pt-16 pb-5  w-full pxs text-white">
+    <div
+      className="bg-black pxss mb:pt-20 pt-32 pb-5
+      w-full  text-white"
+    >
       <div className=" w-full bg-white/60 p-[.6px]"></div>
       <div
         className="flex justify-between items-center 
-      py-5 mb:flex-col mb:items-start mb:gap-8"
+      py-14 mb:flex-col mb:items-start mb:gap-8"
       >
         <h1 className="text-8xl mb:text-6xl  font-alegreya">Say hi!</h1>
         <div className="flex items-center gap-2 ">
           <div className="bg-white w-[50px] h-[1px]"></div>
-          <p className=" font-semibold">My Projects</p>
+          <p className=" font-semibold">Get in touch</p>
         </div>
       </div>
       <div className=" w-full bg-white/60 p-[.6px]"></div>

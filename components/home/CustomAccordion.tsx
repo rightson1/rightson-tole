@@ -1,36 +1,69 @@
 "use client";
-import React from "react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
 import { services } from "@/utils/constants";
-const defaultContent =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
-const CustomAccordion = () => {
+export default function CustomAccordion() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleOpen = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <div className="flex-[2]   overflow-hidden ">
-      <Accordion
-        itemClasses={{
-          heading: "py-5",
-        }}
-        className="w-full "
-      >
-        {services.map((service, index) => {
-          return (
-            <AccordionItem
-              classNames={{
-                title: "acc-title text-start text-xl",
+    <div className="flex-[2]">
+      {services.map((service, index) => (
+        <div key={index}>
+          <motion.header
+            initial={false}
+            onClick={() => toggleOpen(index)}
+            className="py-5  border-b-1 border-black/20 
+            cursor-pointer flex justify-between items-center"
+            animate={{
+              borderBottom:
+                openIndex === index
+                  ? "1px solid rgba(0,0,0,0)"
+                  : "1px solid black",
+            }}
+          >
+            <span className="acc-title text-start text-lg md:text-xl">
+              {service.title}
+            </span>
+            <motion.div
+              animate={{
+                rotate: openIndex === index ? 45 : 0,
+                transition: {
+                  ease: "easeInOut",
+                },
               }}
-              key={`${index + 1}`}
-              title={service.title}
-              className="w-full"
+              className="w-4 h-4 md:w-5 md:h-5 relative"
             >
-              {service.description}
-            </AccordionItem>
-          );
-        })}
-      </Accordion>
+              <div
+                className="w-[2px] h-full
+               bg-black absolute left-1/2 t
+               op-0 transform -translate-x-1/2"
+              ></div>
+              <div className="w-full h-[2px] bg-black absolute left-0 top-1/2 transform -translate-y-1/2"></div>
+            </motion.div>
+          </motion.header>
+          <AnimatePresence>
+            {openIndex === index && (
+              <motion.section
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.4 }}
+              >
+                {service.description}
+              </motion.section>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
     </div>
   );
-};
-
-export default CustomAccordion;
+}

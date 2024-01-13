@@ -15,7 +15,7 @@ const StartProject = () => {
         />
       </div>
       <div
-        className="flex-[5] mb:flex-col mb:py-10 gap-5
+        className="flex-[5] mb:flex-col mb:py-20 gap-5
        text-white flex bg-black items-center justify-center pxs"
       >
         <div className="flex-1">
