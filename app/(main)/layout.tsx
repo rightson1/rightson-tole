@@ -8,10 +8,17 @@ import { Button } from "@nextui-org/react";
 import MenuLinks from "@/components/MenuLinks";
 import { useMediaQuery } from "react-responsive";
 import Contact from "@/components/Contact";
+import { usePathname } from "next/navigation";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname();
+
   const isLargeScreen = useMediaQuery({ minWidth: 1024 });
+  React.useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <motion.div
       className={`relative scroll-smooth ${
@@ -64,10 +71,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         >
           <Button
             onPress={() => setOpen(false)}
-            className="  bg-primary text-white rounded-full p-4 text-xl "
+            className="  bg-primary text-white 
+            rounded-full p-2 text-xl "
             isIconOnly
           >
-            <IoMdClose />
+            <IoMdClose className="opacity-70" />
           </Button>
         </motion.div>
         <motion.div
@@ -77,7 +85,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           className="w-full  relative "
         >
           <div className="p-4 h-screen">
-            <MenuLinks />
+            <MenuLinks setOpen={setOpen} open={open} />
           </div>
         </motion.div>
       </motion.div>

@@ -1,8 +1,11 @@
+import { IBlog } from "@/types";
 import { Divider } from "@nextui-org/react";
 import Image from "next/image";
 import React from "react";
+import { dateFormatter, getImageUrl } from "../functions";
+import Link from "next/link";
 
-const Blogs = () => {
+const Blogs = ({ blogs }: { blogs: IBlog[] }) => {
   return (
     <div className="pxs pb-40 mb-20 w-full h-full overflow-hidden" id="blogs">
       <div className=" w-full bg-black/70 p-[1px]"></div>
@@ -11,11 +14,15 @@ const Blogs = () => {
         <h1 className="h3 ">My Blogs</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5  mb:gap-10">
-        {[1, 2, 3, 4].map((item, index) => {
+        {blogs.map((blog, index) => {
           return (
-            <div className="flex shadow-md  flex-col gap-2 w-full" key={index}>
+            <Link
+              href={`/blog/${blog.slug}`}
+              className="flex shadow-md  flex-col gap-2 w-full"
+              key={index}
+            >
               <Image
-                src="/keyboard.png"
+                src={getImageUrl(blog.featuredImage)}
                 alt="keyboardw"
                 width={500}
                 height={500}
@@ -23,15 +30,15 @@ const Blogs = () => {
               />
               <div className="flex flex-col gap-1 p-4">
                 <p className="text-black/50 font-semibold">
-                  {/* Date */}8 Jan 2024
+                  {dateFormatter(blog.date)}
                 </p>
-                <h4 className="h4">How to Kill A Mocking Bird</h4>
+                <h4 className="h4">{blog.title}</h4>
                 <div className="flex items-center gap-2 ">
                   {/* <div className=" w-[50px] bg-black/50 h-[1px]"></div> */}
                   <p className="text-black/50 font-semibold">...Read More</p>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -5,10 +5,12 @@ import Last from "@/components/home/Last";
 import Projects from "@/components/home/Projects";
 import Section2 from "@/components/home/Section2";
 import StartProject from "@/components/home/StartProject";
-import { Divider } from "@nextui-org/react";
-import Image from "next/image";
+import { getBlogs, getProjects } from "@/utils/api";
 
-export default function Home() {
+export default async function Home() {
+  const [projects, blogs] = await Promise.all([getProjects(), getBlogs()]);
+
+  projects.sort((a, b) => a.index - b.index);
   return (
     <main
       className="flex  flex-col items-center font-manrope 
@@ -17,8 +19,8 @@ export default function Home() {
       <Hero />
       <Section2 />
       <StartProject />
-      <Blogs />
-      <Projects />
+      {blogs && <Blogs blogs={blogs} />}
+      {projects && <Projects projects={projects} />}
       <Last />
     </main>
   );

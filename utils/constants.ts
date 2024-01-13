@@ -7,12 +7,12 @@ export const menuLinks = [
   },
   {
     name: "About",
-    url: "#about",
+    url: "/#about",
   },
 
   {
     name: "Blogs",
-    url: "#blogs",
+    url: "/#blogs",
   },
   {
     name: "Projects",
@@ -43,3 +43,8 @@ export const services = [
        interfaces using Figma for intuitive digital experiences.`,
   },
 ];
+export const webUrl: string =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : `https://rightson.vercel.app`;
+export const baseUrl = `${webUrl}/api`;

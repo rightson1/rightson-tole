@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="flex justify-between flex-col  gap-8 md:flex-row">
           <div className="flex gap-2">
             <div className="flex flex-col gap-2">
-              <h6 className="h6">Contact Me</h6>
+              <h6 className="h5">Contact Me</h6>
               <p className="font-semibold">
                 <a href="mailto:chari.rightson@gmail.com">
                   chari.rightson@gmail.com
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
           <div className="flex gap-2">
             <div className="flex flex-col gap-2">
-              <h6 className="h6">What I do</h6>
+              <h6 className="h5">What I do</h6>
 
               <p className="font-semibold">Web Design</p>
               <p className="font-semibold">Web Development</p>
@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
           <div className="flex gap-2">
             <div className="flex flex-col gap-2">
-              <h6 className="h6">Socials</h6>
+              <h6 className="h5">Socials</h6>
               {/* github rightson1, twitter _rightson_ , linkedIn rightson-kirigha/ */}
               <p className="font-semibold">
                 <a

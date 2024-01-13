@@ -7,45 +7,60 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
+import { useRouter } from "next/navigation";
 
-const MenuLinks = () => {
+const MenuLinks = ({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const isLargeScreen = useMediaQuery({ minWidth: 768 });
+  const router = useRouter();
   return (
     <div className="w-full flex-col main-h  gap-3  flex pt-10 justify-center">
       {isLargeScreen ? (
         <div className="flex-col flex gap-3 flex-1 items-center justify-center">
           {menuLinks.map((link) => (
-            <Button
-              className="group relative flex flex-col text-white text-xl"
+            <Link
               key={link.name}
+              href={link.url}
+              className="text-lg font-medium t-200 
+                 text-white hover:text-black"
             >
-              <Link
+              <Button
+                className="group 
+              bg-transparent
+              relative flex flex-col text-white text-xl"
                 key={link.name}
-                href={link.url}
-                className="text-lg font-medium t-200  text-white hover:text-black"
+                variant="shadow"
+                color="danger"
               >
                 {link.name}
-              </Link>
-              <span className="w-0 h-[2px] bg-black t-200  absolute -bottom-[5px] left-0 group-hover:w-full"></span>
-            </Button>
+                {/* <span className="w-0 h-[2px] bg-black t-200  absolute -bottom-[5px] left-0 group-hover:w-full"></span> */}
+              </Button>
+
+              {/* <span className="w-0 h-[2px] bg-black t-200  absolute -bottom-[5px] left-0 group-hover:w-full"></span> */}
+            </Link>
           ))}
         </div>
       ) : (
         <div className="flex-col flex gap-3 flex-1 items-center justify-center">
           {menuLinks.map((link) => (
-            <Button
-              className="group relative flex flex-col text-white text-xl"
+            <Link
               key={link.name}
+              href={link.url}
+              className="text-lg font-medium t-200 
+                 text-white hover:text-black"
+              onClick={() => {
+                setOpen(false);
+                router.push(link.url);
+              }}
             >
-              <Link
-                key={link.name}
-                href={link.url}
-                className="text-lg font-medium t-200  text-white hover:text-black"
-              >
-                {link.name}
-              </Link>
-              <span className="w-0 h-[2px] bg-black t-200  absolute -bottom-[5px] left-0 group-hover:w-full"></span>
-            </Button>
+              {link.name}
+              {/* <span className="w-0 h-[2px] bg-black t-200  absolute -bottom-[5px] left-0 group-hover:w-full"></span> */}
+            </Link>
           ))}
         </div>
       )}
@@ -58,13 +73,30 @@ const MenuLinks = () => {
           height={300}
         />
         <div className="flex">
-          <Button isIconOnly className="text-xl text-white rounded-full p-4">
+          <Button
+            isIconOnly
+            className="text-xl text-white bg-transparent
+             rounded-full "
+            as="a"
+            href="https://twitter.com/_rightson_"
+          >
             <FaXTwitter />
           </Button>
-          <Button isIconOnly className="text-xl text-white rounded-full p-4">
+          <Button
+            isIconOnly
+            className="text-xl text-white rounded-full bg-transparent"
+            as="a"
+            href="https://github.com/righson1"
+          >
             <FaGithub />
           </Button>
-          <Button isIconOnly className="text-xl text-white rounded-full p-4">
+
+          <Button
+            isIconOnly
+            className="text-xl text-white rounded-full  bg-transparent"
+            as="a"
+            href="https://api.whatsapp.com/send?phone=254778749554"
+          >
             <FaWhatsapp />
           </Button>
         </div>

@@ -1,4 +1,3 @@
-import Second from "@/components/about/Second";
 import Contact from "@/components/contact/ContactForm";
 import Hero from "@/components/contact/Hero";
 

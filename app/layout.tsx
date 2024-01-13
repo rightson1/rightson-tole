@@ -2,7 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Alegreya, Inter } from "next/font/google";
 import { Manrope, Marck_Script } from "next/font/google";
-
+import "yet-another-react-lightbox/styles.css";
+import { Toaster } from "react-hot-toast";
 const manrope = Manrope({
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin-ext", "vietnamese", "latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
         ${alegreya.variable}
       font-manrope `}
       >
+        <Toaster />
         {children}
       </body>
     </html>
