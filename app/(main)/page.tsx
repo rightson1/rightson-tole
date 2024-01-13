@@ -9,8 +9,6 @@ import { getBlogs, getProjects } from "@/utils/api";
 
 export default async function Home() {
   const [projects, blogs] = await Promise.all([getProjects(), getBlogs()]);
-
-  projects.sort((a, b) => a.index - b.index);
   return (
     <main
       className="flex  flex-col items-center font-manrope 

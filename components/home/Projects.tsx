@@ -6,6 +6,7 @@ import { getImageUrl } from "../functions";
 import Link from "next/link";
 
 const Projects = ({ projects }: { projects: IProject[] }) => {
+  projects.sort((a, b) => a.index - b.index);
   return (
     <div className="pxs text-white pb-20 mb:py-20 w-full h-full overflow-hidden bg-black py-20">
       <div className=" w-full bg-white h-[1px]"></div>
