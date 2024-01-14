@@ -5,8 +5,10 @@ import { menuLinks } from "@/utils/constants";
 import Link from "next/link";
 import { OpenProps, TimeType } from "@/types";
 import { Button } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 
 const Navbar = ({ open, setOpen }: OpenProps) => {
+  const pathname = usePathname();
   const After = ({ time, type }: TimeType) => {
     return (
       <span
@@ -55,11 +57,20 @@ const Navbar = ({ open, setOpen }: OpenProps) => {
             <Link
               key={link.name}
               href={link.url}
-              className="text-base font-medium t-200  text-white hover:text-darkRed"
+              className={`text-base
+               font-medium t-200  text-white hover:text-darkRed
+               ${pathname === link.url && "text-darkRed"}
+               `}
             >
               {link.name}
             </Link>
-            <span className="w-0 h-[2px] bg-darkRed t-200  absolute -bottom-[5px] left-0 group-hover:w-full"></span>
+            <span
+              className={`w-0 
+            h-[2px] bg-darkRed t-200  absolute 
+            -bottom-[5px] left-0 group-hover:w-full
+            ${pathname === link.url && "w-full"}
+            `}
+            ></span>
           </button>
         ))}
       </div>

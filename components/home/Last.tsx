@@ -32,20 +32,20 @@ const Last = () => {
           >
             <br />
             <br />
-            So I am a twenty something year old designer, developer and
+            So, I am a twenty something year old designer, developer and
             founder(multiple failed projects). I went to Chavakali High School,
             located in Vihiga County. I did my KCSE in 2021 and scored a
             (something between A-E, just guess). Was it easy? Yes. Was it worth
-            it? Yes. Am i a genius? .... Anyways, joined Riara University in
+            it? Yes. Am i a genius? Nope. Anyways, joined Riara University in
             2021 to pursue a degree in Computer Science.
             <br />
             <br />
             I started my tech journey immediately in highschool, had a dream of
             creating an adult site(childish right?). I started learning HTML and
-            CSS , but then ,just got bored and decided to focus on my studies.
-            When I joined campus, I started learning web development again, but
-            this time, I was more serious.Knowing i needed to make money and own
-            my own company.
+            CSS , but then ,got bored and decided to focus on my studies. When I
+            joined campus, I started learning web development again, but this
+            time, I was more serious.Knowing i needed to make money and start a
+            startup
             <br />
             <br />
             Two and a half years down the line , am currently a full time
