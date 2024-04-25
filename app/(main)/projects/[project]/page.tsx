@@ -15,6 +15,7 @@ const Blog = async ({
   };
 }) => {
   const blog = await getProjectBySlug(params.project);
+
   if (!blog) return <div>404</div>;
   return (
     <div className="pxs md:px-20 lg:px-40 py-10 relative bg-black text-white">
@@ -41,7 +42,7 @@ const Blog = async ({
               </p>
             </div>
           </div>
-          <Link href={blog.link} className="h1 underline">
+          <Link href={blog.link || ""} className="h1 underline">
             {blog.title}
           </Link>
           <Image
@@ -53,7 +54,7 @@ const Blog = async ({
             width={500}
             height={500}
           />
-          <Link href={blog.link} className=" underline">
+          <Link href={blog.link || ""} className=" underline">
             View Project
           </Link>
           <div
