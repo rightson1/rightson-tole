@@ -35,7 +35,7 @@ const Footer = () => {
               <p className="font-semibold">
                 <a href="tel:++254 791568168">+254 791568168</a>
               </p>
-              <p className="font-semibold">www.rightson.univora.co.ke</p>
+              <p className="font-semibold">rightson.vercel.app</p>
               <p className="font-semibold">Nairobi ,Kenya</p>
             </div>
           </div>
