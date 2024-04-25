@@ -1,17 +1,25 @@
 
-
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Link from "next/link";
 
 import Image from 'next/image'
+import { getImageUrl } from "./functions";
 
 const contentfulLoader = ({ src, width, quality }) => {
-  return `${src}?w=${width}&q=${quality || 75}`
+  return `${"https:" + src}?w=${width}&q=${quality || 75}`
 }
 
 const ContentfulImage = props => {
-  return <Image loader={contentfulLoader} {...props} />
+  return <Image  {...props}
+    {...contentfulLoader({
+      src: props.src,
+      width: props.width,
+      quality: props.quality
+    })}
+    src={"https:" + props.src}
+    className="w-full"
+  />
 }
 
 const options = {

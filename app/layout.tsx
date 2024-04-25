@@ -6,6 +6,7 @@ import "yet-another-react-lightbox/styles.css";
 import { Toaster } from "react-hot-toast";
 import { webUrl } from "@/utils/constants";
 import Progress from "@/components/Progress";
+import Scroll from "@/components/scroll";
 const manrope = Manrope({
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin-ext", "vietnamese", "latin"],
@@ -37,7 +38,7 @@ export default function RootLayout({
       >
         <Progress />
         <Toaster />
-        {children}
+        <Scroll>{children}</Scroll>
       </body>
     </html>
   );
