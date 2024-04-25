@@ -72,12 +72,12 @@ export const metadata: Metadata = {
     siteName: "Rightson's Portfolio",
     locale: "en_US",
     alternateLocale: ["es_ES"],
-    images: [
-      {
-        url: webUrl + "/rightson.jpg",
-        alt: "Rightson Kirigha - Web Developer and UI/UX Designer",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: webUrl + "/rightson.jpg",
+    //     alt: "Rightson Kirigha - Web Developer and UI/UX Designer",
+    //   },
+    // ],
     audio: [],
     videos: [],
     url: webUrl,
@@ -89,13 +89,13 @@ export const metadata: Metadata = {
     creator: "@rightson",
     title: "Rightson Kirigha - Web Developer and UI/UX Designer",
     description: `I am Rightson Kirigha, a passionate web developer and UI/UX designer based in Nairobi, Kenya. Explore my portfolio for creative digital solutions.`,
-    images: [
-      {
-        url: webUrl + "/rightson.jpg",
-        alt: "Rightson Kirigha",
-        width: 500,
-        height: 500,
-      },
-    ],
+    // images: [
+    //   {
+    //     url: webUrl + "/rightson.jpg",
+    //     alt: "Rightson Kirigha",
+    //     width: 500,
+    //     height: 500,
+    //   },
+    // ],
   },
 };
