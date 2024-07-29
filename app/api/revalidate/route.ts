@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
   const page = request.nextUrl.searchParams.get("page");
   const tag = request.nextUrl.searchParams.get("tag");
+  console.log(tag);
   if (tag) {
     revalidateTag(tag);
   } else if (page) {
