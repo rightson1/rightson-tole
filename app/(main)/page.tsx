@@ -25,7 +25,7 @@ export default async function Home() {
       <StartProject sanityHomepage={sanityHomepage} resumeUrl={resumeUrl} />
       <Blogs blogs={sanityBlogs} />
       <Projects homepage={sanityHomepage} />
-      <Last />
+      <Last homepage={sanityHomepage} />
     </main>
   );
 }
