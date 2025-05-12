@@ -3,13 +3,19 @@ import { FaChevronLeft as ChevronLeft } from "react-icons/fa";
 import Link from "next/link";
 import { Avatar } from "@nextui-org/react";
 import Image from "next/image";
-import { dateFormatter, getImageUrl } from "@/components/functions";
+import {
+  dateFormatter,
+  defaultMetadata,
+  getImageUrl,
+} from "@/components/functions";
 import RichText from "@/components/RichText";
 import Images from "./Images";
 import { getProjectBySlugSanity } from "@/utils/api/projects";
 import { imageUrl } from "@/sanity/lib/client";
 import Portable_Text_Editor from "@/components/text-editor/portable_text_editor";
-const Blog = async ({
+import { Metadata } from "next";
+import { Props } from "@/types";
+const Project = async ({
   params,
 }: {
   params: {
@@ -75,4 +81,29 @@ const Blog = async ({
   );
 };
 
-export default Blog;
+export default Project;
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
+  const data = await getProjectBySlugSanity(params.project as string);
+  if (!data) {
+    return defaultMetadata();
+  }
+  return {
+    title: `${data.title} by Rightson Kirigha Tole`,
+    description: data.excerpt,
+    openGraph: {
+      title: `${data.title} by Rightson Kirigha Tole`,
+      description: data.excerpt ?? "",
+      images: [
+        {
+          url: imageUrl(data.main_image || data.main_image),
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+    },
+  };
+}

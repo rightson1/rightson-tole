@@ -13,13 +13,13 @@ export function dateFormatter(date: string) {
   });
 }
 export const metadata: Metadata = {
-  title: "Rightson Kirigha - Web Developer and UI/UX Designer",
-  description: `I am Rightson Kirigha, a passionate web developer and UI/UX designer based in Nairobi, Kenya. Explore my portfolio for creative digital solutions.`,
+  title: "Rightson Kirigha Tole - Web Developer and UI/UX Designer",
+  description: `I am Rightson Kirigha Tole, a passionate web developer and UI/UX designer based in Nairobi, Kenya. Explore my portfolio for creative digital solutions.`,
   applicationName: null,
   authors: null,
   generator: null,
   keywords: [
-    "rightson kirigha",
+    "rightson kirigha tole ",
     "riara university",
     "web developer",
     "UI/UX designer",
@@ -28,10 +28,10 @@ export const metadata: Metadata = {
     "portfolio",
   ],
 
-  creator: "Rightson Kirigha",
+  creator: "Rightson Kirigha Tole",
   openGraph: {
     determiner: "auto",
-    title: "Rightson Kirigha - Web Developer and UI/UX Designer",
+    title: "Rightson Kirigha Tole - Web Developer and UI/UX Designer",
     description:
       "Passionate about crafting digital experiences. Explore my portfolio for web development and UI/UX design wonders.",
     emails: "chari.rightson@gmail.com",
@@ -55,8 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     site: webUrl,
     creator: "@rightson",
-    title: "Rightson Kirigha - Web Developer and UI/UX Designer",
-    description: `I am Rightson Kirigha, a passionate web developer and UI/UX designer based in Nairobi, Kenya. Explore my portfolio for creative digital solutions.`,
+    title: "Rightson Kirigha Tole - Web Developer and UI/UX Designer",
+    description: `I am Rightson Kirigha Tole, a passionate web developer and UI/UX designer based in Nairobi, Kenya. Explore my portfolio for creative digital solutions.`,
     // images: [
     //   {
     //     url: webUrl + "/rightson.jpg",

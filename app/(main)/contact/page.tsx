@@ -14,7 +14,7 @@ export default function About() {
   );
 }
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Me || RIGHTSON KIRIGHA TOLE",
   description: "Get in touch with me |Rightson Kirigha",
   keywords: [
     "contact",

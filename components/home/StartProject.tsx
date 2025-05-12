@@ -52,7 +52,7 @@ const StartProject = ({
               target="_blank"
               href={resumeUrl ?? ""}
             >
-              Download Resume
+              View Resume
             </Button>
           </div>
         </div>
