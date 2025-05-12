@@ -2,16 +2,15 @@ import Image from "next/image";
 import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import CustomAccordion from "./CustomAccordion";
+import { IHomepage } from "@/types";
 
-const Section2 = () => {
+const Section2 = ({ sanityHomepage }: { sanityHomepage: IHomepage }) => {
   return (
     <div className="pxs w-full bg-white relative">
       <div
         className="bg-black absolute hidden lg:flex
        w-full top-0 left-0 h-[250px] "
-      >
-        h
-      </div>
+      ></div>
 
       <div
         className=" flex  w-full fx-
@@ -32,16 +31,14 @@ const Section2 = () => {
       </div>
       <div className="flex items-start w-full py-10 ">
         <p className="md:max-w-[50vw]">
-          Ever heard of the saying "Jack of all trades, master of none"? Well, I
-          am that guy who proved that saying is wrong .I am Rightson Kirigha, a
-          third-year Computer Science student at Riara University. I am a
-          designer, developer, and founder. My superpower? Turning complex
-          problems into elegant web wonders.<strong> Creativity</strong> is my
-          passion,
-          <strong> problem-solving </strong>
-          is my forte, and collaboration is my driving force. With these powers
-          combined, I create purposeful experiences that drive business results
-          and push boundaries.
+          {sanityHomepage.featuredImageSection?.description
+            ?.split("|")
+            .map((text, i) => {
+              if (i % 2 === 1) {
+                return <strong key={i}>{text}</strong>;
+              }
+              return text;
+            })}
         </p>
       </div>
 
@@ -68,15 +65,11 @@ const Section2 = () => {
       </div>
       <div className="flex flex-col lg:flex-row py-20 gap-10">
         <div className="flex flex-col gap-2 flex-1">
-          <h3 className="p">What I do</h3>
-          <p className="h3">
-            Combining my passion for design and development with hardwork, I
-            bring creativity and technical skills to crafting digital
-            experiences for web and mobile platforms.
-          </p>
+          <h3 className="p">{sanityHomepage.whatIDoSection?.title}</h3>
+          <p className="h3">{sanityHomepage.whatIDoSection?.description}</p>
           <p className="mb:hidden  font-marck text-4xl">Chari</p>
         </div>
-        <CustomAccordion />
+        <CustomAccordion homepage={sanityHomepage} />
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
+import { Homepage } from "@/sanity.types";
+import { IHomepage } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-const Hero = () => {
+const Hero = ({ sanityHomepage }: { sanityHomepage: IHomepage }) => {
   return (
     <section className="main-h bg-black w-full  text-white pxs ">
       <div
@@ -26,8 +28,7 @@ const Hero = () => {
             font-[400] w-full md:text-5xl md:font-[500] mb:font-semibold"
           >
             I am Rightson Kirigha. <br />
-            {`   I craft web magic : I make pixels dance and code tell jokes.
-            Welcome to my whimsical world`}
+            {sanityHomepage.hero}
           </h1>
           <p className=" sm:text-start font-marck text-4xl">Chari</p>
         </div>

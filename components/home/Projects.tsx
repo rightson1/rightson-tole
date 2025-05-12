@@ -1,12 +1,14 @@
-import { IProject } from "@/types";
+import { IHomepage, IProject } from "@/types";
 import { Button, Divider } from "@nextui-org/react";
 import Image from "next/image";
 import React from "react";
 import { getImageUrl } from "../functions";
 import Link from "next/link";
+import { Homepage } from "@/sanity.types";
+import { imageUrl } from "@/sanity/lib/client";
 
-const Projects = ({ projects }: { projects: IProject[] }) => {
-  projects.sort((a, b) => a.index - b.index);
+const Projects = ({ homepage }: { homepage: IHomepage }) => {
+  const projects = homepage.projects.projects;
   return (
     <div className="pxs text-white pb-20 mb:py-20 w-full h-full overflow-hidden bg-black py-20">
       <div className=" w-full bg-white h-[1px]"></div>
@@ -21,7 +23,7 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
         {projects.slice(0, 4).map((project, index) => {
           return (
             <Link
-              href={`/projects/${project.slug}`}
+              href={`/projects/${project.slug?.current}`}
               className="flex shadow-lg flex-col gap-2 w-full"
               key={index}
             >
@@ -29,10 +31,10 @@ const Projects = ({ projects }: { projects: IProject[] }) => {
                 className="w-full overflow-hidden 
               relative mb:h-[300px] h-[250px]"
               >
-                {/* <div className="bg-black/50 z-[4] absolute h-full w-full"></div> */}
+                {/* <div className="bg-black/50sww z-[4] absolute h-full w-full"></div> */}
 
                 <Image
-                  src={getImageUrl(project.featuredImage)}
+                  src={imageUrl(project.main_image)}
                   alt="keyboard"
                   width={500}
                   height={500}

@@ -2,8 +2,9 @@
 import { services } from "@/utils/constants";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Homepage } from "@/sanity.types";
 
-export default function CustomAccordion() {
+export default function CustomAccordion({ homepage }: { homepage: Homepage }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleOpen = (index: number) => {
@@ -12,7 +13,7 @@ export default function CustomAccordion() {
 
   return (
     <div className="flex-[2]">
-      {services.map((service, index) => (
+      {homepage.whatIDoSection?.services?.map((service, index) => (
         <div key={index}>
           <motion.header
             initial={false}

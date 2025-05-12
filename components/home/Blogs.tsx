@@ -4,8 +4,10 @@ import Image from "next/image";
 import React from "react";
 import { dateFormatter, getImageUrl } from "../functions";
 import Link from "next/link";
+import { Post } from "@/sanity.types";
+import { imageUrl } from "@/sanity/lib/client";
 
-const Blogs = ({ blogs }: { blogs: IBlog[] }) => {
+const Blogs = ({ blogs }: { blogs: Post[] }) => {
   return (
     <div className="pxs pb-40 mb-20 w-full h-full overflow-hidden" id="blogs">
       <div className=" w-full bg-black/70 p-[1px]"></div>
@@ -17,12 +19,12 @@ const Blogs = ({ blogs }: { blogs: IBlog[] }) => {
         {blogs.map((blog, index) => {
           return (
             <Link
-              href={`/blog/${blog.slug}`}
+              href={`/blog/${blog.slug?.current}`}
               className="flex shadow-md  flex-col gap-2 w-full"
               key={index}
             >
               <Image
-                src={getImageUrl(blog.featuredImage)}
+                src={imageUrl(blog.mainImage)}
                 alt="keyboardw"
                 width={500}
                 height={500}
@@ -30,7 +32,7 @@ const Blogs = ({ blogs }: { blogs: IBlog[] }) => {
               />
               <div className="flex flex-col gap-1 p-4">
                 <p className="text-black/50 font-semibold">
-                  {dateFormatter(blog.date)}
+                  {dateFormatter(blog._createdAt)}
                 </p>
                 <h4 className="h4">{blog.title}</h4>
                 <div className="flex items-center gap-2 ">

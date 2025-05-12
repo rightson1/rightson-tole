@@ -17,15 +17,15 @@ const Navbar = ({ open, setOpen }: OpenProps) => {
           time === 150
             ? "duration-150"
             : time === 300
-            ? "duration-300"
-            : "duration-500"
+              ? "duration-300"
+              : "duration-500"
         }
         ${
           type === "after"
             ? "bg-darkRed"
             : type === "before"
-            ? "bg-black delay-75"
-            : "bg-darkRed delay-150"
+              ? "bg-black delay-75"
+              : "bg-darkRed delay-150"
         }
          group-hover:w-full`}
       ></span>

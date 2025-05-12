@@ -1,7 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-const Hero = () => {
+const Hero = ({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) => {
   return (
     <section className="main-h bg-black w-full  text-white pxs ">
       <div
@@ -22,14 +28,12 @@ const Hero = () => {
              md:justify-center "
         >
           {" "}
-          <h1 className="h1">Rightsons Projects</h1>
+          <h1 className="h1">{title}</h1>
           <p
             className="text-xl  
             font-[400] w-full"
           >
-            You remeber Riley from the Boondocks? Sorry, I meant Huey. Anyways
-            welcome to my projects page. Here you can find some of my projects.
-            You might need a cup of coffee though. So lets dive in.
+            {description}
           </p>
           <p className=" sm:text-start font-marck text-4xl">Chari</p>
         </div>

@@ -3,22 +3,23 @@ import Image from "next/image";
 import React from "react";
 import { getImageUrl } from "../functions";
 import Link from "next/link";
+import { Project } from "@/sanity.types";
+import { imageUrl } from "@/sanity/lib/client";
 
-const Projects = ({ projects }: { projects: IProject[] }) => {
+const Projects = ({ projects }: { projects: Project[] }) => {
   if (!projects) return null;
-  projects.sort((a, b) => a.index - b.index);
   return (
     <div className="w-full pxs -mt-40">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5  mb:gap-10">
         {projects.map((item, index) => {
           return (
             <Link
-              href={`/projects/${item.slug}`}
+              href={`/projects/${item.slug?.current}`}
               className="flexflex-col gap-2 w-full shadow-md"
               key={index}
             >
               <Image
-                src={getImageUrl(item.featuredImage)}
+                src={imageUrl(item.main_image)}
                 alt="keyboardw"
                 width={500}
                 height={500}

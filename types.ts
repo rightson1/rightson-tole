@@ -1,3 +1,5 @@
+import { Homepage, Project, ProjectsPage } from "./sanity.types";
+
 export interface TimeType {
   time: number;
   type: "before" | "after" | "last";
@@ -36,4 +38,26 @@ export interface IBlog {
   content: any;
   excerpt: string;
   date: string;
+}
+export type Props = {
+  params: {
+    [key: string]: string | string[];
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export type PageProps<T extends string> = {
+  params: Record<T, string>;
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export interface IHomepage extends Homepage {
+  projects: {
+    projects: Project[];
+    title: string;
+  };
+}
+
+export interface IProjectPage extends Omit<ProjectsPage, "projects"> {
+  projects: Project[];
 }

@@ -4,8 +4,17 @@ import Link from "next/link";
 import { Avatar } from "@nextui-org/react";
 import Image from "next/image";
 import { getBlogBySlug } from "@/utils/api";
-import { dateFormatter, getImageUrl } from "@/components/functions";
+import {
+  dateFormatter,
+  defaultMetadata,
+  getImageUrl,
+} from "@/components/functions";
 import RichText from "@/components/RichText";
+import { getBlogBySlugSanity } from "@/utils/api/blogs";
+import { imageUrl } from "@/sanity/lib/client";
+import Portable_Text_Editor from "@/components/text-editor/portable_text_editor";
+import { Props } from "@/types";
+import { Metadata } from "next";
 const Blog = async ({
   params,
 }: {
@@ -13,7 +22,7 @@ const Blog = async ({
     blog: string;
   };
 }) => {
-  const blog = await getBlogBySlug(params.blog);
+  const blog = await getBlogBySlugSanity(params.blog);
   if (!blog) return <div>404</div>;
   return (
     <div className="pxs md:px-20 lg:px-40 py-10 relative bg-black text-white">
@@ -27,7 +36,7 @@ const Blog = async ({
         </Link>
         <div className="fx-col pt-5 gap-5">
           <p className="text-sm flex items-center opacity-75 gap-1">
-            {dateFormatter(blog.date)}
+            {dateFormatter(blog._createdAt)}
           </p>
           <div className="flex items-center gap-2">
             <Avatar size="md" src={"/rightson.jpg"} />
@@ -42,7 +51,7 @@ const Blog = async ({
           </div>
           <h1 className="h2">{blog.title}</h1>
           <Image
-            src={getImageUrl(blog.featuredImage)}
+            src={imageUrl(blog.mainImage)}
             className="w-full h-[500px] 
             border-[1px] border-gray-200/10
             rounded-md mb:max-h-[350px] object-cover "
@@ -51,11 +60,8 @@ const Blog = async ({
             height={500}
           />
 
-          <div
-            className="max-w-none prose my-5 
-       prose-headings:text-white prose-p:text-default-600 text-white/90"
-          >
-            <RichText content={blog.content} />
+          <div className="max-w-none prose my-5  prose-p:text-default-600 ">
+            <Portable_Text_Editor body={blog.body} />
           </div>
         </div>
       </div>
@@ -64,3 +70,28 @@ const Blog = async ({
 };
 
 export default Blog;
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
+  const data = await getBlogBySlugSanity(params.blog as string);
+  if (!data) {
+    return defaultMetadata();
+  }
+  return {
+    title: data.title,
+    description: data.excerpt,
+    openGraph: {
+      title: data.title,
+      description: data.excerpt ?? "",
+      images: [
+        {
+          url: imageUrl(data.mainImage || data.mainImage),
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+    },
+  };
+}

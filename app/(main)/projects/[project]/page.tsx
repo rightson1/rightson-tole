@@ -3,10 +3,12 @@ import { FaChevronLeft as ChevronLeft } from "react-icons/fa";
 import Link from "next/link";
 import { Avatar } from "@nextui-org/react";
 import Image from "next/image";
-import { getProjectBySlug } from "@/utils/api";
 import { dateFormatter, getImageUrl } from "@/components/functions";
 import RichText from "@/components/RichText";
 import Images from "./Images";
+import { getProjectBySlugSanity } from "@/utils/api/projects";
+import { imageUrl } from "@/sanity/lib/client";
+import Portable_Text_Editor from "@/components/text-editor/portable_text_editor";
 const Blog = async ({
   params,
 }: {
@@ -14,9 +16,9 @@ const Blog = async ({
     project: string;
   };
 }) => {
-  const blog = await getProjectBySlug(params.project);
+  const project = await getProjectBySlugSanity(params.project);
 
-  if (!blog) return <div>404</div>;
+  if (!project) return <div>404</div>;
   return (
     <div className="pxs md:px-20 lg:px-40 py-10 relative bg-black text-white">
       <div className="fx-col gap-5">
@@ -29,7 +31,7 @@ const Blog = async ({
         </Link>
         <div className="fx-col pt-5 gap-5">
           <p className="text-sm flex items-center opacity-75 gap-1">
-            {dateFormatter(blog.date)}
+            {dateFormatter(project._createdAt)}
           </p>
           <div className="flex items-center gap-2">
             <Avatar size="md" src={"/rightson.jpg"} />
@@ -42,11 +44,11 @@ const Blog = async ({
               </p>
             </div>
           </div>
-          <Link href={blog.link || ""} className="h1 underline">
-            {blog.title}
+          <Link href={project.demo_link || ""} className="h1 underline">
+            {project.title}
           </Link>
           <Image
-            src={getImageUrl(blog.coverImage)}
+            src={imageUrl(project.featured_image)}
             className="w-full  my-5
             border-[1px] border-gray-200/10
           object-contain "
@@ -54,16 +56,19 @@ const Blog = async ({
             width={500}
             height={500}
           />
-          <Link href={blog.link || ""} className=" underline">
+          <Link href={project.demo_link || ""} className=" underline">
             View Project
           </Link>
           <div
             className="max-w-none prose my-5 
-       prose-headings:text-white prose-p:text-default-600 text-white/90"
+       prose-headings:text-white prose-p:text-default-600 text-white/70 
+       prose-strong:text-white/70 prose-a:text-white/70 prose-p:text-white/70
+       prose-ul:text-white/70 prose-li:text-white/70"
           >
-            <RichText content={blog.content} />
+            <Portable_Text_Editor body={project.description} />
           </div>
-          <Images gallery={blog.images} />
+          {/* @ts-ignore */}
+          <Images gallery={project.images} />
         </div>
       </div>
     </div>
