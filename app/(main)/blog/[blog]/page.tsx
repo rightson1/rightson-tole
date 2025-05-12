@@ -13,16 +13,43 @@ import RichText from "@/components/RichText";
 import { getBlogBySlugSanity } from "@/utils/api/blogs";
 import { imageUrl } from "@/sanity/lib/client";
 import Portable_Text_Editor from "@/components/text-editor/portable_text_editor";
-import { Props } from "@/types";
-import { Metadata } from "next";
-const Blog = async ({
-  params,
-}: {
-  params: {
-    blog: string;
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: Promise<{ blog: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const blog_slug = (await params).blog as string;
+  const data = await getBlogBySlugSanity(blog_slug);
+  if (!data) {
+    return defaultMetadata();
+  }
+  return {
+    title: data.title,
+    description: data.excerpt,
+    openGraph: {
+      title: data.title,
+      description: data.excerpt ?? "",
+      images: [
+        {
+          url: imageUrl(data.mainImage || data.mainImage),
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+    },
   };
-}) => {
-  const blog = await getBlogBySlugSanity(params.blog);
+}
+
+const Blog = async ({ params }: Props) => {
+  const blog_slug = (await params).blog as string;
+  const blog = await getBlogBySlugSanity(blog_slug);
   if (!blog) return <div>404</div>;
   return (
     <div className="pxs md:px-20 lg:px-40 py-10 relative bg-black text-white">
@@ -70,28 +97,3 @@ const Blog = async ({
 };
 
 export default Blog;
-export async function generateMetadata({
-  params,
-  searchParams,
-}: Props): Promise<Metadata> {
-  const data = await getBlogBySlugSanity(params.blog as string);
-  if (!data) {
-    return defaultMetadata();
-  }
-  return {
-    title: data.title,
-    description: data.excerpt,
-    openGraph: {
-      title: data.title,
-      description: data.excerpt ?? "",
-      images: [
-        {
-          url: imageUrl(data.mainImage || data.mainImage),
-          width: 1200,
-          height: 630,
-          alt: data.title,
-        },
-      ],
-    },
-  };
-}

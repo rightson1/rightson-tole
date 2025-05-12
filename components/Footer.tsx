@@ -35,7 +35,7 @@ const Footer = () => {
               <p className="font-semibold">
                 <a href="tel:++254 791568168">+254 791568168</a>
               </p>
-              <p className="font-semibold">rightson.vercel.app</p>
+              <p className="font-semibold">www.rightson.xyz</p>
               <p className="font-semibold">Nairobi ,Kenya</p>
             </div>
           </div>
@@ -85,7 +85,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="pt-10">© 2023 Chari Designs. All Rights Reserved .</p>
+        <p className="pt-10">© 2025 Chari Designs. All Rights Reserved .</p>
       </div>
     </div>
   );

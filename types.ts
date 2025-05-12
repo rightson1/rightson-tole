@@ -39,11 +39,11 @@ export interface IBlog {
   excerpt: string;
   date: string;
 }
-export type Props = {
-  params: {
-    [key: string]: string | string[];
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
+export type Props<T extends string> = {
+  params: Promise<{
+    [key in T]: string | string[];
+  }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export type PageProps<T extends string> = {

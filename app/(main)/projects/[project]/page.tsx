@@ -14,15 +14,41 @@ import { getProjectBySlugSanity } from "@/utils/api/projects";
 import { imageUrl } from "@/sanity/lib/client";
 import Portable_Text_Editor from "@/components/text-editor/portable_text_editor";
 import { Metadata } from "next";
-import { Props } from "@/types";
-const Project = async ({
+type Props = {
+  params: Promise<{ project: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata({
   params,
-}: {
-  params: {
-    project: string;
+  searchParams,
+}: Props): Promise<Metadata> {
+  const project_slug = (await params).project as string;
+  const data = await getProjectBySlugSanity(project_slug);
+  if (!data) {
+    return defaultMetadata();
+  }
+  return {
+    title: `${data.title} by Rightson Kirigha Tole`,
+    description: data.excerpt,
+    openGraph: {
+      title: `${data.title} by Rightson Kirigha Tole`,
+      description: data.excerpt ?? "",
+      images: [
+        {
+          url: imageUrl(data.main_image || data.main_image),
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+    },
   };
-}) => {
-  const project = await getProjectBySlugSanity(params.project);
+}
+
+const Project = async ({ params }: Props) => {
+  const project_slug = (await params).project as string;
+  const project = await getProjectBySlugSanity(project_slug);
 
   if (!project) return <div>404</div>;
   return (
@@ -82,28 +108,3 @@ const Project = async ({
 };
 
 export default Project;
-export async function generateMetadata({
-  params,
-  searchParams,
-}: Props): Promise<Metadata> {
-  const data = await getProjectBySlugSanity(params.project as string);
-  if (!data) {
-    return defaultMetadata();
-  }
-  return {
-    title: `${data.title} by Rightson Kirigha Tole`,
-    description: data.excerpt,
-    openGraph: {
-      title: `${data.title} by Rightson Kirigha Tole`,
-      description: data.excerpt ?? "",
-      images: [
-        {
-          url: imageUrl(data.main_image || data.main_image),
-          width: 1200,
-          height: 630,
-          alt: data.title,
-        },
-      ],
-    },
-  };
-}

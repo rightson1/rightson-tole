@@ -1,18 +1,6 @@
 import Contact from "@/components/contact/ContactForm";
 import Hero from "@/components/contact/Hero";
 import { Metadata } from "next";
-
-export default function About() {
-  return (
-    <main
-      className="flex  flex-col items-center font-manrope 
-    justify-between bg-white"
-    >
-      <Hero />
-      <Contact />
-    </main>
-  );
-}
 export const metadata: Metadata = {
   title: "Contact Me || RIGHTSON KIRIGHA TOLE",
   description: "Get in touch with me |Rightson Kirigha",
@@ -31,3 +19,15 @@ export const metadata: Metadata = {
   generator: "NextJS",
   referrer: "no-referrer",
 };
+
+export default function ContactPage() {
+  return (
+    <main
+      className="flex  flex-col items-center font-manrope 
+    justify-between bg-white"
+    >
+      <Hero />
+      <Contact />
+    </main>
+  );
+}
