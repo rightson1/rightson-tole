@@ -7,17 +7,14 @@ import Section2 from "@/components/home/Section2";
 import StartProject from "@/components/home/StartProject";
 import { getBlogs, getProjects } from "@/utils/api";
 import { getSanityBlogs } from "@/utils/api/blogs";
-import { getResumeUrl, getSanityHomepage } from "@/utils/api/homapage";
+import { getResumeUrl, getSanityHomepage } from "@/utils/api/homepage";
 
 export default async function Home() {
-  const [projects, blogs, sanityBlogs, sanityHomepage, resumeUrl] =
-    await Promise.all([
-      getProjects(),
-      getBlogs(),
-      getSanityBlogs(),
-      getSanityHomepage(),
-      getResumeUrl(),
-    ]);
+  const [sanityBlogs, sanityHomepage, resumeUrl] = await Promise.all([
+    getSanityBlogs(),
+    getSanityHomepage(),
+    getResumeUrl(),
+  ]);
   return (
     <main
       className="flex  flex-col items-center font-manrope 
@@ -26,8 +23,8 @@ export default async function Home() {
       <Hero sanityHomepage={sanityHomepage} />
       <Section2 sanityHomepage={sanityHomepage} />
       <StartProject sanityHomepage={sanityHomepage} resumeUrl={resumeUrl} />
-      {sanityBlogs && <Blogs blogs={sanityBlogs} />}
-      {projects && <Projects homepage={sanityHomepage} />}
+      <Blogs blogs={sanityBlogs} />
+      <Projects homepage={sanityHomepage} />
       <Last />
     </main>
   );

@@ -37,8 +37,13 @@ export async function POST(req: NextRequest) {
     if (!jsonBody?._type) {
       return new Response("Bad Request", { status: 400 });
     }
-
+    console.log({
+      tag: jsonBody._type,
+      jsonBody,
+      body,
+    });
     revalidateTag(jsonBody._type);
+
     return NextResponse.json({
       status: 200,
       revalidated: true,
