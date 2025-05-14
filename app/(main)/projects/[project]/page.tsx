@@ -49,7 +49,7 @@ export async function generateMetadata({
 const Project = async ({ params }: Props) => {
   const project_slug = (await params).project as string;
   const project = await getProjectBySlugSanity(project_slug);
-
+  console.log({ project });
   if (!project) return <div>404</div>;
   return (
     <div className="pxs md:px-20 lg:px-40 py-10 relative bg-black text-white">
@@ -76,7 +76,7 @@ const Project = async ({ params }: Props) => {
               </p>
             </div>
           </div>
-          <Link href={project.demo_link || ""} className="h1 underline">
+          <Link href={project.live_preview ?? ""} className="h1 underline">
             {project.title}
           </Link>
           <Image
@@ -88,7 +88,7 @@ const Project = async ({ params }: Props) => {
             width={500}
             height={500}
           />
-          <Link href={project.demo_link || ""} className=" underline">
+          <Link href={project.live_preview ?? ""} className=" underline">
             View Project
           </Link>
           <div

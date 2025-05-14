@@ -21,7 +21,7 @@ export const SanityImage = (props: Props) => {
     <figure>
       <Image
         {...imageProps}
-        alt={alt}
+        alt={alt ?? "No Alt"}
         sizes="(max-width: 800px) 100vw, 800px"
       />
       {caption && (
