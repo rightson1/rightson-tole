@@ -46,5 +46,5 @@ export const services = [
 export const webUrl: string =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : `https://rightson.vercel.app`;
+    : `https://rightson.xyz`;
 export const baseUrl = `${webUrl}/api`;
