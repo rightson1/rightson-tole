@@ -59,7 +59,7 @@ const Images = ({ gallery }: { gallery: Project["images"][] }) => {
 
   return (
     <div className="space-y-8">
-      <h5 className="h5">Project Gallery</h5>
+      <h5 className="h5">Project Gallery : Click to View</h5>
       <Lightbox
         open={open}
         close={() => setOpen(false)}
